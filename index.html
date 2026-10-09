@@ -477,7 +477,91 @@
     100% { transform: translateX(-50%); }
   }
 
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) 2fr;
+    gap: 48px;
+  }
+
+  .contact-intro {
+    font-size: 15px;
+    color: #3A3A3A;
+    margin-bottom: 24px;
+  }
+
+  .contact-details {
+    list-style: none;
+    font-size: 14px;
+  }
+
+  .contact-details li { margin-bottom: 14px; }
+
+  .contact-details .detail-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .contact-form label {
+    display: block;
+    margin-block: 18px 6px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .contact-form label:first-child { margin-top: 0; }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font: inherit;
+    font-size: 14px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--card);
+    color: var(--text);
+  }
+
+  .contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(13,152,162,0.15);
+  }
+
+  .contact-form button {
+    margin-top: 24px;
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 13px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .contact-form button:hover { opacity: 0.88; }
+
   /* RESPONSIVE */
+  @media (max-width: 760px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
   @media (max-width: 600px) {
     nav { padding: 16px 20px; }
     .nav-links { gap: 18px; }
@@ -499,6 +583,7 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
     <li><a href="#resume" class="nav-resume">Resume</a></li>
   </ul>
 </nav>
@@ -851,7 +936,44 @@
     </object>
   </section>
 
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">Recruiting, consulting partnerships, or just want to talk data? Send me a message.</p>
+        <ul class="contact-details">
+          <li><span class="detail-label">Email</span><a href="mailto:recheverriasosa@ucsd.edu">Recheverriasosa@ucsd.edu</a></li>
+          <li><span class="detail-label">Phone</span><a href="tel:+13238095834">(323) 809-5834</a></li>
+          <li><span class="detail-label">LinkedIn</span><a href="https://www.linkedin.com/in/robertoecheverriasosa" target="_blank">robertoecheverriasosa</a></li>
+          <li><span class="detail-label">GitHub</span><a href="https://github.com/Robert-ech" target="_blank">Robert-ech</a></li>
+        </ul>
+      </div>
+      <form class="contact-form" id="contact-form" action="mailto:recheverriasosa@ucsd.edu" method="GET">
+        <label for="contact-email">Your email:</label>
+        <input type="email" id="contact-email" name="email" placeholder="you@example.com" required>
+        <label for="contact-subject">Subject:</label>
+        <input type="text" id="contact-subject" name="subject" required>
+        <label for="contact-message">Message:</label>
+        <textarea id="contact-message" name="body" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
 </main>
+
+<script>
+  // Build the mailto link by hand so spaces and line breaks survive in every mail app
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = this;
+    var body = f.body.value + '\n\nReply to: ' + f.email.value;
+    location.href = f.action +
+      '?subject=' + encodeURIComponent(f.subject.value) +
+      '&body=' + encodeURIComponent(body);
+  });
+</script>
 
 </body>
 </html>
