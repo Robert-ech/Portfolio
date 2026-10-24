@@ -1,0 +1,74 @@
+[
+  {
+    "title": "NvironX — DataHacks 2026 Hackathon",
+    "year": "2026",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "1st place for best models trained on Impulse AI. A geospatial intelligence platform that predicts whether a proposed US data center will succeed or fail, scoring community, regulatory, environmental, utility and governance risk, with Claude explaining each score in plain language."
+  },
+  {
+    "title": "Credit Risk Predictor",
+    "year": "2026",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "XGBoost credit default model trained on 2M Lending Club loans after removing 60+ data leakage columns (ROC AUC 0.735, 68% default recall). Deployed as a Streamlit dashboard with real-time risk scoring and SHAP explanations."
+  },
+  {
+    "title": "Fantasy Football Draft App",
+    "year": "2025",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Fantasy point projections from a Gradient Boosting model (MAE 0.52) trained on 16,000+ rows of NFL data across 3 seasons, served in a full-stack draft interface with player stats and highlight videos."
+  },
+  {
+    "title": "Placeholder Project 4",
+    "year": "2026",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder description. Replace this with a short summary of what the project does, the tools you used, and the result."
+  },
+  {
+    "title": "Placeholder Project 5",
+    "year": "2025",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder description. Replace this with a short summary of what the project does, the tools you used, and the result."
+  },
+  {
+    "title": "Placeholder Project 6",
+    "year": "2025",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder description. Replace this with a short summary of what the project does, the tools you used, and the result."
+  },
+  {
+    "title": "Placeholder Project 7",
+    "year": "2024",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder description. Replace this with a short summary of what the project does, the tools you used, and the result."
+  },
+  {
+    "title": "Placeholder Project 8",
+    "year": "2024",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder description. Replace this with a short summary of what the project does, the tools you used, and the result."
+  },
+  {
+    "title": "Placeholder Project 9",
+    "year": "2024",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder description. Replace this with a short summary of what the project does, the tools you used, and the result."
+  },
+  {
+    "title": "Placeholder Project 10",
+    "year": "2023",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder description. Replace this with a short summary of what the project does, the tools you used, and the result."
+  },
+  {
+    "title": "Placeholder Project 11",
+    "year": "2023",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder description. Replace this with a short summary of what the project does, the tools you used, and the result."
+  },
+  {
+    "title": "Placeholder Project 12",
+    "year": "2022",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Placeholder description. Replace this with a short summary of what the project does, the tools you used, and the result."
+  }
+]

@@ -10,11 +10,11 @@ const BASE_PATH = (location.hostname === 'localhost' || location.hostname === '1
   ? '/'           // Local server
   : '/Portfolio/'; // GitHub Pages repo name
 
-// This is a one-page site, so most links are section anchors
+// Most links are sections of the home page; Projects is its own page
 let pages = [
   { url: '#about', title: 'About' },
   { url: '#experience', title: 'Experience' },
-  { url: '#projects', title: 'Projects' },
+  { url: 'projects/', title: 'Projects' },
   { url: '#skills', title: 'Skills' },
   { url: '#contact', title: 'Contact' },
   { url: 'https://github.com/Robert-ech', title: 'GitHub' },
@@ -52,15 +52,15 @@ for (let p of pages) {
   list.append(li);
 }
 
-// Highlight the current link. Every section shares one page, so the hash
-// tells the links apart as well as host and pathname.
+// Highlight the current link. The home page sections share one pathname,
+// so the hash tells them apart as well as host and pathname.
 function markCurrentLink() {
   // "/Portfolio/" and "/Portfolio/index.html" are the same page
   let pathname = location.pathname.replace(/index\.html$/, '');
-  for (let a of $$('nav a')) {
+  for (let a of $$('.nav-links a')) {
     a.classList.toggle(
       'current',
-      a.host === location.host && a.pathname === pathname && a.hash !== '' && a.hash === location.hash,
+      a.host === location.host && a.pathname === pathname && a.hash === location.hash,
     );
   }
 }
@@ -100,3 +100,56 @@ select.addEventListener('input', function (event) {
   setColorScheme(event.target.value);
   localStorage.colorScheme = event.target.value;
 });
+
+// DATA LOADING
+
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!(containerElement instanceof Element)) {
+    console.error('renderProjects: containerElement is not a DOM element', containerElement);
+    return;
+  }
+
+  // Only allow real heading tags, otherwise fall back to h2
+  if (!/^h[1-6]$/.test(headingLevel)) {
+    console.warn(`renderProjects: "${headingLevel}" is not a heading level, using h2`);
+    headingLevel = 'h2';
+  }
+
+  containerElement.innerHTML = '';
+
+  if (!Array.isArray(projects) || projects.length === 0) {
+    containerElement.innerHTML = '<p class="projects-empty">No projects to show yet.</p>';
+    return;
+  }
+
+  for (let project of projects) {
+    const article = document.createElement('article');
+    article.innerHTML = `
+      <${headingLevel}>${project.title ?? 'Untitled project'}</${headingLevel}>
+      ${project.image ? `<img src="${project.image}" alt="${project.title ?? ''}">` : ''}
+      <p>${project.description ?? ''}</p>
+      ${project.year ? `<p class="project-year">${project.year}</p>` : ''}
+    `;
+    containerElement.appendChild(article);
+  }
+}
