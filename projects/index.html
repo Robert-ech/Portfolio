@@ -18,6 +18,18 @@
     <h1 class="projects-title">Projects</h1>
   </div>
 
+  <div class="projects-controls">
+    <label class="search-field" for="project-search">
+      <span>Search projects</span>
+      <input id="project-search" class="search-bar" type="search" placeholder="Search by title, skill, or year…" aria-label="Search projects">
+    </label>
+  </div>
+
+  <div class="projects-visuals">
+    <svg id="projects-pie-plot" role="img" aria-label="Projects by year"></svg>
+    <div class="chart-legend" aria-live="polite"></div>
+  </div>
+
   <div class="projects">
     <!-- Filled in by projects.js from lib/projects.json -->
   </div>

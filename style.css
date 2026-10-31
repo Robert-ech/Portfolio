@@ -706,6 +706,116 @@ section:nth-child(6) { animation-delay: 0.25s; }
   color: var(--muted);
 }
 
+.projects-controls {
+  margin-bottom: 24px;
+}
+
+.search-field {
+  display: grid;
+  gap: 8px;
+  color: var(--text-soft);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.search-bar {
+  width: min(100%, 32rem);
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+}
+
+.search-bar:focus {
+  outline: 2px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  outline-offset: 2px;
+}
+
+.projects-visuals {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) minmax(180px, 260px);
+  gap: 24px;
+  align-items: center;
+  margin: 12px 0 28px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+#projects-pie-plot {
+  width: min(100%, 220px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+#projects-pie-plot path {
+  transition: transform 180ms ease, opacity 180ms ease, fill 180ms ease;
+  cursor: pointer;
+}
+
+#projects-pie-plot path:hover {
+  opacity: 0.9;
+}
+
+#projects-pie-plot path.selected {
+  fill: var(--accent-strong, #2b2d42) !important;
+  stroke: var(--bg);
+  stroke-width: 3;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.chart-legend-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.chart-legend-item.selected {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg));
+}
+
+.legend-swatch {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.legend-count {
+  color: var(--muted);
+  font-size: 0.83rem;
+}
+
+.chart-empty {
+  margin: 0;
+  color: var(--muted);
+}
+
 .projects-more {
   margin-top: 28px;
   font-size: 13px;
