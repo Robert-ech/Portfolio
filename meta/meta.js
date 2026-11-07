@@ -153,9 +153,9 @@ function renderScatterplot(selectedCommitSet) {
     .domain([0, maxLinesPerCommit || 1])
     .range([4, 16]);
 
-  const colorScale = d3.scaleOrdinal()
-    .domain(['css', 'js', 'html', 'json', 'md', 'unknown'])
-    .range(['#7c9cff', '#ffb26b', '#6fcf97', '#f299c3', '#80d0ff', '#a0a0a0']);
+  const colorScale = d3.scaleSequential()
+    .domain([0, maxLinesPerCommit || 1])
+    .interpolator(d3.interpolateRgbBasis(['#d73027', '#f46d43', '#a6d96a', '#1a9850']));
 
   const svg = d3.select(scatterSvg)
     .attr('viewBox', `0 0 ${width} ${height}`)
@@ -216,7 +216,7 @@ function renderScatterplot(selectedCommitSet) {
     .attr('cx', (d) => x(d.date))
     .attr('cy', (d) => y(d.day))
     .attr('r', (d) => radiusScale(d.totalLines))
-    .attr('fill', (d) => colorScale(d.types[0] || 'unknown'))
+    .attr('fill', (d) => colorScale(d.totalLines))
     .attr('fill-opacity', (d) => selectedSet.has(d.commit) ? 0.88 : 0.35)
     .attr('stroke', (d) => (selectedSet.has(d.commit) ? '#f7f7f5' : 'rgba(255,255,255,0.4)'))
     .attr('stroke-width', (d) => (selectedSet.has(d.commit) ? 1.5 : 1))
