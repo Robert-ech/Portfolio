@@ -1,0 +1,29 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "meta:generate": "npx elocuent -d . -o meta/loc.csv --spaces 2",
+    "start": "python -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robert-ech/Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Robert-ech/Portfolio/issues"
+  },
+  "homepage": "https://github.com/Robert-ech/Portfolio#readme",
+  "devDependencies": {
+    "elocuent": "^0.0.4"
+  }
+}

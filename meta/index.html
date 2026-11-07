@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Analysis — Roberto Echeverria Sosa</title>
+  <meta name="description" content="Meta-analysis of the project codebase, including summary statistics and commit activity visualizations.">
+  <script type="module" src="../global.js"></script>
+  <script type="module" src="./meta.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main>
+    <div class="meta-header">
+      <p class="hero-label">Data Science · Machine Learning</p>
+      <h1>Meta Analysis</h1>
+      <p class="meta-intro">A quick look at how this portfolio codebase evolved over time, including commit activity and language distribution.</p>
+    </div>
+
+    <section class="meta-section">
+      <div id="summary-stats" class="stats-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="meta-section">
+      <div class="chart-card chart-card-wide">
+        <div class="chart-header">
+          <h2>Commit activity</h2>
+          <p>Brush to inspect a subset of commit activity.</p>
+        </div>
+        <svg id="commit-scatter" role="img" aria-label="Scatter plot of commit activity by date and weekday"></svg>
+        <div id="scatter-tooltip" class="scatter-tooltip" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="meta-section meta-section-split">
+      <div class="chart-card">
+        <div class="chart-header">
+          <h2>Selected commit count</h2>
+        </div>
+        <div id="selection-summary" class="selection-summary"></div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-header">
+          <h2>Language breakdown</h2>
+        </div>
+        <div id="language-breakdown" class="language-breakdown"></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
